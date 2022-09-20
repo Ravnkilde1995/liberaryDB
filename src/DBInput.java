@@ -74,27 +74,22 @@ public class DBInput {
     }
 
     static void insert() {
-        String sql = "INSERT INTO book (title) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO book(title, category_id, publication_date, copies_owned) VALUES (?, ?, ?, ?)";
 
-        try (Connection con = DBConnection.createConnection();  // får en connection
+        try (Connection con = DBConnection.createConnection();
 
-             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+             PreparedStatement ps = con.prepareStatement(sql);
         ) {
 
             ps.setString(1, TerminalInput.getString("Skriv titlen på bogen"));
             ps.setInt(2, TerminalInput.getInt("Skriv tallet på den katogri som bogen tilhører"));
             ps.setString(3, TerminalInput.getString("Skriv udgivelses datoen på bogen"));
-            ps.setString(3, TerminalInput.getString("Hvor mange kopier findes der på lageret"));
-
+            ps.setString(4, TerminalInput.getString("Hvor mange kopier findes der på lageret"));
 
             ps.executeUpdate();
 
-            //ResultSet ids = ps.getGeneratedKeys();
-            //ids.next();
-            //int id = ids.getInt(1);
 
-
-            //System.out.println("vi er nået til række : " + id);
+            System.out.println("inserted details ");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -137,15 +132,13 @@ public class DBInput {
     public void create(Member member) {
 
         try {
-            String sql = "INSERT INTO member(first_name, last_name, joined_date, user_name, password, active_status_id) VALUES(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO member(first_name, last_name, user_name, password) VALUES(?, ?, ?, ?)";
 
-            PreparedStatement preparedStatement = DBConnection.connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = DBConnection.createConnection().prepareStatement(sql);
             preparedStatement.setString(1, member.getFirstName());
             preparedStatement.setString(2, member.getLastName());
-            preparedStatement.setDate(3, (Date) member.getJoinedDate());
-            preparedStatement.setString(5, member.getUser_name());
-            preparedStatement.setString(6, member.getPassword());
-            preparedStatement.setInt(4, member.getActiveStatus());
+            preparedStatement.setString(3, member.getUser_name());
+            preparedStatement.setString(4, member.getPassword());
             preparedStatement.executeUpdate();
 
         } catch (Exception e) {

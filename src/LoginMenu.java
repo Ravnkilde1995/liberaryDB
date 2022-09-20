@@ -1,6 +1,5 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Date;
 import java.util.Scanner;
 
 public class LoginMenu {
@@ -18,8 +17,11 @@ public class LoginMenu {
             System.out.print(" Login menu" + "\n" + "\n");
             System.out.println("Select your options");
             System.out.println("-------------------------\n");
-            System.out.println("Press '1' to login ");
+            System.out.println("Press '1' to login as user ");
             System.out.println("Press '2' to create a new user ");
+            System.out.println("Press '3' to login as admin ");
+            System.out.println("Press '0' to shut down ");
+
 
             answer = input.nextInt();
 
@@ -31,6 +33,15 @@ public class LoginMenu {
                 case 2:
                     create(input);
                     break;
+
+                case 3:
+                    Admin.loginAdmin(input);
+                    break;
+
+                case 0:
+                    System.out.println("Shutting down");
+                    break;
+
             }
         }
     }
@@ -39,7 +50,7 @@ public class LoginMenu {
 
         boolean loggedIn = false;
 
-        while(!loggedIn) {
+        while (!loggedIn) {
             System.out.println("LOG IN");
             System.out.print("Username: ");
             String usernameInput = input.next();
@@ -54,23 +65,23 @@ public class LoginMenu {
         }
     }
 
-    static boolean validateLogin(Scanner input, Member member, String passwordInput){
+    static boolean validateLogin(Scanner input, Member member, String passwordInput) {
 
-        if(member != null){
+        if (member != null) {
 
-            if(member.getPassword().equals(passwordInput)){
+            if (member.getPassword().equals(passwordInput)) {
                 username = Member.getUser_name();
                 answer = 0;
                 //myPageMenu(input);
                 return true;
 
-            }else{
-                System.out.println("\n"+"Wrong user name or password");
+            } else {
+                System.out.println("\n" + "Wrong user name or password");
 
             }
 
         } else {
-            System.out.println("\n"+"Wrong user name or password");
+            System.out.println("\n" + "Wrong user name or password");
 
         }
         System.out.println();
@@ -80,19 +91,13 @@ public class LoginMenu {
 
     public static void create(Scanner input) {
 
-        System.out.println("Creating new user: "+"\n");
+        System.out.println("Creating new user: " + "\n");
 
         System.out.println("insert first name: ");
         String firstname = input.next();
 
         System.out.println("insert last name: ");
         String lastname = input.next();
-
-        //System.out.println("insert todaysdate: ");
-        Date joinedDate =input.nextInt();
-
-        System.out.println("type 1 for active or 0 for inactive: ");
-        int activeStatus = input.nextInt();
 
 
         System.out.println("insert username: ");
@@ -102,8 +107,7 @@ public class LoginMenu {
         String password = input.next();
 
 
-
-        Member user = new Member(firstname, lastname, joinedDate, activeStatus, userName, password);
+        Member user = new Member(firstname, lastname, userName, password);
 
         System.out.println("\n You have succesfully created a user. Continue to login \n");
 
@@ -115,22 +119,20 @@ public class LoginMenu {
     static Member getMemberByUsername(String username) {
 
         try {
-            String sql = "SELECT * FROM members WHERE username = ?";
-            PreparedStatement statement = DBConnection.connection.prepareStatement(sql);
+            String sql = "SELECT * FROM member WHERE user_name = ?";
+            PreparedStatement statement = DBConnection.createConnection().prepareStatement(sql);
             statement.setString(1, username);
 
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                int id = resultSet.getInt("userid");
+                int id = resultSet.getInt("id");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
-                Date joinedDate = resultSet.getDate("joined_date");
-                int activeStatus = resultSet.getInt("active_status_id");
                 String user_name = resultSet.getString("user_name");
                 String password = resultSet.getString("password");
 
-                Member user = new Member(firstName, lastName, joinedDate, activeStatus, user_name, password);
+                Member user = new Member(firstName, lastName, user_name, password);
                 return user;
 
             }
@@ -142,5 +144,4 @@ public class LoginMenu {
         return null;
 
     }
-
 }
