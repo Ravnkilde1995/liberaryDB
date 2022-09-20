@@ -1,3 +1,7 @@
+package Niveau3_persistens;
+
+import Niveau2_logic.TerminalInput;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Scanner;

@@ -1,3 +1,7 @@
+package Niveau3_persistens;
+
+import Niveau2_logic.TerminalInput;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +12,8 @@ public class DBInput {
     static void update() {
         printBookList();
 
-        String sql = "update  book set title ?  where id = ?";
+        String sql = "update  book set title=?  Where id = ?";
+
 
 
         try (Connection con = DBConnection.createConnection();
