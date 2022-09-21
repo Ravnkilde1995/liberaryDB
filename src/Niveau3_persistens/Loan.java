@@ -1,4 +1,5 @@
 package Niveau3_persistens;
 
-public class Loan {
+public class Loan
+{
 }
