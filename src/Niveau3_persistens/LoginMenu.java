@@ -113,7 +113,7 @@ public class LoginMenu {
 
         System.out.println("\n You have succesfully created a user. Continue to login \n");
 
-        DBInput dbInput = new DBInput();
+        MemberMapper dbInput = new MemberMapper();
         dbInput.create(user);
     }
 

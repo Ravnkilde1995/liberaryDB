@@ -28,19 +28,19 @@ public class Admin {
             switch (svar) {
 
                 case "opret":
-                    DBInput.insert();
+                    AdminMapper.insert();
                     break;
 
                 case "print":
-                    DBInput.printBookList();
+                    AdminMapper.printBookList();
                     break;
 
                 case "slet":
-                    DBInput.delete();
+                    AdminMapper.delete();
                     break;
 
                 case "update":
-                    DBInput.update();
+                    AdminMapper.update();
                     break;
 
                 default:

@@ -2,13 +2,14 @@ package Niveau3_persistens;
 
 import Niveau2_logic.TerminalInput;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBInput {
-
-
+public class AdminMapper {
     static void update() {
         printBookList();
 
@@ -132,24 +133,4 @@ public class DBInput {
 
         printBookList();
     }
-
-
-    public void create(Member member) {
-
-        try {
-            String sql = "INSERT INTO member(first_name, last_name, user_name, password) VALUES(?, ?, ?, ?)";
-
-            PreparedStatement preparedStatement = DBConnection.createConnection().prepareStatement(sql);
-            preparedStatement.setString(1, member.getFirstName());
-            preparedStatement.setString(2, member.getLastName());
-            preparedStatement.setString(3, member.getUser_name());
-            preparedStatement.setString(4, member.getPassword());
-            preparedStatement.executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-    }
 }
-
