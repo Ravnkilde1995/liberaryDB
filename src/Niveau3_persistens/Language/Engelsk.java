@@ -17,7 +17,7 @@ public class Engelsk extends Dialog {
 
     @Override
     public String changeLanguage() {
-        return "do you want to change language ?";
+        return "do you want to change language ? " + "\n" + "yes or no";
     }
 
     @Override

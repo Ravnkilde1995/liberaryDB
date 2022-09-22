@@ -19,8 +19,26 @@ public class LoanMapper {
 
         // skal indsættes en låner dato
         // skal indsættes en returnerings dato
-        updateLoaner(member_id, book_id);
+        insertIntoLoan(member_id, book_id);
     }
+
+
+    public static void insertIntoLoan(int member_id, int book_id) {
+
+        try {
+            String sql = "INSERT INTO loan (book_id, member_id) VALUES (?,?) ";
+
+            PreparedStatement preparedStatement = DBConnection.createConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, book_id);
+            preparedStatement.setInt(2, member_id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+
+        }
+    }
+
 
     public static void updateLoaner(int member_id, int book_id) {
 

@@ -14,43 +14,6 @@ public class LoginMapper {
     static String currentUser;
 
 
-    public static void loginMenu() {
-
-        answer = 1;
-
-        while (answer != 0) {
-            System.out.print("\n" + "Login menu" + "\n" + "\n");
-            System.out.println("Select your options");
-            System.out.println("-------------------------\n");
-            System.out.println("Press '1' to login as user ");
-            System.out.println("Press '2' to login as admin ");
-            System.out.println("Press '3' to create a new user ");
-            System.out.println("Press '0' to shut down ");
-
-
-            answer = input.nextInt();
-
-            switch (answer) {
-                case 1:
-                    login(input);
-                    break;
-
-                case 2:
-                    Admin.loginAdmin(input);
-                    break;
-
-                case 3:
-                    create(input);
-                    break;
-
-                case 0:
-                    System.out.println("\n"  + "Shutting down");
-                    break;
-
-            }
-        }
-    }
-
     public static void login(Scanner input) {
 
         boolean loggedIn = false;

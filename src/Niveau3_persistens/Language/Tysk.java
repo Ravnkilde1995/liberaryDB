@@ -13,7 +13,7 @@ public class Tysk extends Dialog {
     Scanner input = new Scanner(System.in);
     @Override
     public String hi() {
-        return "Hallo und herzlich willkommen";
+        return "Hallo und herzlich willkommen" + " jaa oder nein";
     }
 
     @Override

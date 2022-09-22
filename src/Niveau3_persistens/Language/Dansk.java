@@ -18,7 +18,7 @@ public class Dansk extends Dialog {
 
     @Override
     public String changeLanguage() {
-        return "vil du skifte sprog? ";
+        return "vil du skifte sprog? " + " ja eller nej";
     }
 
     @Override

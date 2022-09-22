@@ -47,8 +47,8 @@ public class AuthorMapper {
 
         System.out.println("Søg på forfatter");
         String searchForAAuthor = input.next();
-
-        String sql = "SELECT * FROM author WHERE first_name LIKE " + "'%" + searchForAAuthor + "%'";
+        System.out.println(searchForAAuthor);
+        String sql = "SELECT * FROM author WHERE first_name  LIKE " + "'%" + searchForAAuthor + "%'" + "OR last_name LIKE "+ "'%" + searchForAAuthor + "%'";
 
         try {
             PreparedStatement preparedStatement = DBConnection.createConnection().prepareStatement(sql);
@@ -58,8 +58,7 @@ public class AuthorMapper {
                 String firstname = rs.getString("first_name");
                 String lastname = rs.getString("last_name");
 
-                String author = firstname + " " + lastname;
-                System.out.println(author + "hej");
+                System.out.println("Forfatter: "  + firstname + " " + lastname);
 
             }
 

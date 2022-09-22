@@ -5,8 +5,6 @@ import Niveau2_logic.TerminalInput;
 
 import java.util.Scanner;
 
-import static Niveau3_persistens.DB.LoginMapper.loginMenu;
-
 public class Language {
     public static void selectLanguage() {
 
@@ -19,35 +17,41 @@ public class Language {
         while (true) {
             System.out.println(dialog.hi());
 
-            if (TerminalInput.getString(dialog.changeLanguage()).equalsIgnoreCase("y")) {
+            if (TerminalInput.getString(dialog.changeLanguage()).equalsIgnoreCase("yes")) {
                 System.out.println(dialog.selectLanguage());
-                ans = scanner.nextLine();
+                ans = scanner.next();
+                System.out.println(ans);
 
                 switch (ans) {
                     case "dk":
                         dialog = new Dansk();
+                        Dansk dansk = new Dansk();
+                        dansk.loginMenu();
                         break;
 
                     case "eng":
                         dialog = new Engelsk();
+                        Engelsk engelsk = new Engelsk();
+                        engelsk.loginMenu();
                         break;
 
                     case "deu":
                         dialog = new Tysk();
+                        Tysk tysk = new Tysk();
+                        tysk.loginMenu();
                         break;
-
-                    case "menu":
-                        loginMenu();
-                        break;
-
-                    default:
-                        dialog = new Engelsk();
 
                 }
+            }
+
+            else{
+                Engelsk engelsk1 = new Engelsk();
+                engelsk1.loginMenu();
             }
 
         }
     }
 }
+
 
 
