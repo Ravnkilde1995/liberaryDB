@@ -1,4 +1,4 @@
-package Niveau3_persistens;
+package Niveau3_persistens.DB;
 
 public class Member {
 

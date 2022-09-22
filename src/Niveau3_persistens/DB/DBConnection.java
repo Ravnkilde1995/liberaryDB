@@ -1,4 +1,4 @@
-package Niveau3_persistens;
+package Niveau3_persistens.DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

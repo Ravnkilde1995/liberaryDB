@@ -1,14 +1,14 @@
-package Niveau3_persistens;
+package Niveau3_persistens.Language;
 
-import Niveau2_logic.Dansk;
-import Niveau2_logic.Engelsk;
+
 import Niveau2_logic.TerminalInput;
-import Niveau2_logic.Tysk;
 
 import java.util.Scanner;
 
+import static Niveau3_persistens.DB.LoginMapper.loginMenu;
+
 public class Language {
-    public static void selectLanguage () {
+    public static void selectLanguage() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -36,9 +36,12 @@ public class Language {
                         dialog = new Tysk();
                         break;
 
+                    case "menu":
+                        loginMenu();
+                        break;
+
                     default:
                         dialog = new Engelsk();
-
 
                 }
             }

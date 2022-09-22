@@ -1,17 +1,20 @@
-package Niveau3_persistens;
+package Niveau3_persistens.DB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Scanner;
 
-public class LoginMenu {
+import static Niveau3_persistens.DB.MemberLogin.memberLogin;
+
+public class LoginMapper {
+    static Scanner input = new Scanner(System.in);
 
     static String username;
     static int answer;
     static String currentUser;
 
 
-    public static void loginMenu(Scanner input) {
+    public static void loginMenu() {
 
         answer = 1;
 
@@ -48,7 +51,7 @@ public class LoginMenu {
         }
     }
 
-    static void login(Scanner input) {
+    public static void login(Scanner input) {
 
         boolean loggedIn = false;
 
@@ -74,7 +77,7 @@ public class LoginMenu {
             if (member.getPassword().equals(passwordInput)) {
                 username = Member.getUser_name();
                 answer = 0;
-                //myPageMenu(input);
+                memberLogin(input);
                 return true;
 
             } else {

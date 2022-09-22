@@ -1,4 +1,4 @@
-package Niveau3_persistens;
+package Niveau3_persistens.DB;
 
 import Niveau2_logic.TerminalInput;
 
@@ -60,7 +60,7 @@ public class Admin {
     }
 
 
-    static void loginAdmin(Scanner input) {
+    public static void loginAdmin(Scanner input) {
 
         boolean loggedIn = false;
 
