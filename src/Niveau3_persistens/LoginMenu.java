@@ -16,12 +16,12 @@ public class LoginMenu {
         answer = 1;
 
         while (answer != 0) {
-            System.out.print(" Login menu" + "\n" + "\n");
+            System.out.print("\n" + "Login menu" + "\n" + "\n");
             System.out.println("Select your options");
             System.out.println("-------------------------\n");
             System.out.println("Press '1' to login as user ");
-            System.out.println("Press '2' to create a new user ");
-            System.out.println("Press '3' to login as admin ");
+            System.out.println("Press '2' to login as admin ");
+            System.out.println("Press '3' to create a new user ");
             System.out.println("Press '0' to shut down ");
 
 
@@ -33,15 +33,15 @@ public class LoginMenu {
                     break;
 
                 case 2:
-                    create(input);
-                    break;
-
-                case 3:
                     Admin.loginAdmin(input);
                     break;
 
+                case 3:
+                    create(input);
+                    break;
+
                 case 0:
-                    System.out.println("Shutting down");
+                    System.out.println("\n"  + "Shutting down");
                     break;
 
             }

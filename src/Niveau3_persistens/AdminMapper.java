@@ -88,14 +88,15 @@ public class AdminMapper {
         ) {
 
             ps.setString(1, TerminalInput.getString("Skriv titlen på bogen"));
+            printCategoryList();
             ps.setInt(2, TerminalInput.getInt("Skriv tallet på den katogri som bogen tilhører"));
-            ps.setString(3, TerminalInput.getString("Skriv udgivelses datoen på bogen"));
+            ps.setString(3, TerminalInput.getString("Skriv udgivelses datoen på bogen" + "\n" + "Eksempel: 2009-09-03"));
             ps.setString(4, TerminalInput.getString("Hvor mange kopier findes der på lageret"));
 
             ps.executeUpdate();
 
 
-            System.out.println("inserted details ");
+            System.out.println("Bogen er nu tilføjet i databasen ");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,5 +133,34 @@ public class AdminMapper {
         }
 
         printBookList();
+    }
+
+    static void printCategoryList() {
+        List<String> categoryList = new ArrayList<>();
+
+        String sql = "select * from category ";
+
+        try (Connection con = DBConnection.createConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String category = resultSet.getString("category_name");
+
+                categoryList.add(id + " : Category: " + category );
+
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+        for (String s : categoryList) {
+
+            System.out.println(s);
+
+        }
     }
 }
