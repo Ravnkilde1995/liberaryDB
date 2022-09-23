@@ -23,7 +23,7 @@ public class Dansk extends Dialog {
 
     @Override
     public String selectLanguage() {
-        return "angiv DK/ENG/DEU eller menu";
+        return "Angiv DK/ENG/DEU";
     }
 
     @Override
@@ -32,12 +32,12 @@ public class Dansk extends Dialog {
 
         while (answer != 0) {
             System.out.print("\n" + "Login menu" + "\n" + "\n");
-            System.out.println("fortag dit valg");
+            System.out.println("foretag dit valg");
             System.out.println("-------------------------\n");
             System.out.println("Tryk '1' for at logge på som medlem ");
             System.out.println("Tryk '2' for at logge på som admin ");
             System.out.println("Tryk '3' for at oprette dig som medlem ");
-            System.out.println("Tryk '0' for at afslutte ");
+            System.out.println("Tryk '0' for at gå tilbage ");
 
 
             answer = input.nextInt();
@@ -56,7 +56,7 @@ public class Dansk extends Dialog {
                     break;
 
                 case 0:
-                    System.out.println("\n" + "Shutting down");
+                    System.out.println("\n" + "går tilbage");
                     break;
 
             }
@@ -69,12 +69,12 @@ public class Dansk extends Dialog {
 
         while (answer != 0) {
             System.out.print("Velkommen til medlems menuen" + "\n" + "\n");
-            System.out.println("fortag dit valg");
+            System.out.println("foretag dit valg");
             System.out.println("-------------------------\n");
             System.out.println("Tryk '1' for at låne bog ");
             System.out.println("Tryk '2' for at aflevere bog ");
             System.out.println("Tryk '3' for at søge på forfatter ");
-            System.out.println("Tryk '0' for at afslutte ");
+            System.out.println("Tryk '0' for at gå tilbage ");
 
 
             answer = input.nextInt();
@@ -93,7 +93,7 @@ public class Dansk extends Dialog {
                     break;
 
                 case 0:
-                    System.out.println("\n" + "afslutter");
+                    System.out.println("\n" + "går tilbage");
                     break;
 
             }

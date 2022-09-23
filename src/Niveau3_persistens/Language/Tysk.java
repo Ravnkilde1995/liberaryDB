@@ -23,7 +23,7 @@ public class Tysk extends Dialog {
 
     @Override
     public String selectLanguage() {
-        return "Eintreten DK/ENG/DEU oder menu";
+        return "Eintreten DK/ENG/DEU";
     }
 
     @Override
@@ -31,13 +31,13 @@ public class Tysk extends Dialog {
         int answer = 1;
 
         while (answer != 0) {
-            System.out.print("\n" + "Login menu" + "\n" + "\n");
-            System.out.println("Select your options");
+            System.out.print("\n" + "Anmeldemenü" + "\n" + "\n");
+            System.out.println("Wählen Sie Ihre Optionen aus");
             System.out.println("-------------------------\n");
-            System.out.println("Press '1' to login as user ");
-            System.out.println("Press '2' to login as admin ");
-            System.out.println("Press '3' to create a new user ");
-            System.out.println("Press '0' to shut down ");
+            System.out.println("Drücken Sie '1', um sich als Benutzer anzumelden ");
+            System.out.println("Drücken Sie '2', um sich als Administrator anzumelden ");
+            System.out.println("Drücken Sie '3', um einen neuen Benutzer zu erstellen ");
+            System.out.println("Drücken Sie '0', um zurückzugehen ");
 
 
             answer = input.nextInt();
@@ -56,7 +56,7 @@ public class Tysk extends Dialog {
                     break;
 
                 case 0:
-                    System.out.println("\n" + "Shutting down");
+                    System.out.println("\n" + "zurück gehen");
                     break;
 
             }
@@ -68,13 +68,13 @@ public class Tysk extends Dialog {
         int answer = 1;
 
         while (answer != 0) {
-            System.out.print("Welcome to member menu" + "\n" + "\n");
-            System.out.println("Select your options");
+            System.out.print("Willkommen im Mitgliedermenü" + "\n" + "\n");
+            System.out.println("Wählen Sie Ihre Optionen aus");
             System.out.println("-------------------------\n");
-            System.out.println("Press '1' to loan book ");
-            System.out.println("Press '2' to return a book ");
-            System.out.println("Press '3' to search for an author ");
-            System.out.println("Press '0' to go back ");
+            System.out.println("Drücken Sie die '1', um das Buch auszuleihen ");
+            System.out.println("Drücken Sie '2', um ein Buch zurückzugeben ");
+            System.out.println("Drücken Sie '3', um nach einem Autor zu suchen ");
+            System.out.println("Drücken Sie '0', um zurückzugehen");
 
 
             answer = input.nextInt();
@@ -85,7 +85,7 @@ public class Tysk extends Dialog {
                     break;
 
                 case 2:
-                    System.out.println("kommer snart");
+                    System.out.println("demnächst");
                     break;
 
                 case 3:
@@ -93,7 +93,7 @@ public class Tysk extends Dialog {
                     break;
 
                 case 0:
-                    System.out.println("\n" + "Going back a step");
+                    System.out.println("\n" + "Gehe einen Schritt zurück");
                     break;
 
             }

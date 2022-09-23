@@ -22,7 +22,7 @@ public class Engelsk extends Dialog {
 
     @Override
     public String selectLanguage() {
-        return "select DK/ENG/DEU or menu";
+        return "Select DK/ENG/DEU";
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Engelsk extends Dialog {
             System.out.println("Press '1' to login as user ");
             System.out.println("Press '2' to login as admin ");
             System.out.println("Press '3' to create a new user ");
-            System.out.println("Press '0' to shut down ");
+            System.out.println("Press '0' to go back ");
 
 
             answer = input.nextInt();
@@ -55,7 +55,7 @@ public class Engelsk extends Dialog {
                     break;
 
                 case 0:
-                    System.out.println("\n" + "Shutting down");
+                    System.out.println("\n" + "Going back");
                     break;
 
             }
@@ -84,7 +84,7 @@ public class Engelsk extends Dialog {
                     break;
 
                 case 2:
-                    System.out.println("kommer snart");
+                    System.out.println("comming soon");
                     break;
 
                 case 3:
